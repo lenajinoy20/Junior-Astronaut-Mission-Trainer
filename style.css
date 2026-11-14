@@ -1,0 +1,660 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  }
+
+body {
+font-family: Arial, sans-serif;
+background: radial-gradient(circle at top, #182b63 0%, #070b22 45%, #02030d 100%);
+color: white;
+min-height: 100vh;
+display: flex;
+justify-content: center;
+align-items: center;
+padding: 20px;
+position: relative;
+}
+
+/* ⭐ TWINKLING STARS */
+
+body::before {
+content: "";
+position: fixed;
+inset: 0;
+pointer-events: none;
+z-index: 0;
+background-image:
+radial-gradient(white 1px, transparent 1.5px),
+radial-gradient(#b8d8ff 1px, transparent 1.5px),
+radial-gradient(white 2px, transparent 2.5px);
+background-size: 70px 70px, 110px 110px, 160px 160px;
+background-position: 0 0, 35px 45px, 80px 20px;
+animation: twinkle 3s ease-in-out infinite alternate;
+}
+
+body > * {
+position: relative;
+z-index: 1;
+}
+
+@keyframes twinkle {
+from { opacity: 0.25; }
+to { opacity: 1; }
+}
+
+/* 🚀 THREE FLYING ROCKETS */
+
+.rocket-animation {
+position: fixed;
+left: -100px;
+font-size: 45px;
+z-index: 9999;
+pointer-events: none;
+filter: drop-shadow(0 0 12px #00cfff);
+animation: rocketJourney 12s linear infinite;
+}
+
+.rocket-one {
+bottom: 15%;
+animation-delay: 0s;
+}
+
+.rocket-two {
+bottom: 40%;
+font-size: 35px;
+animation-delay: 4s;
+}
+
+.rocket-three {
+bottom: 65%;
+font-size: 40px;
+animation-delay: 8s;
+}
+
+@keyframes rocketJourney {
+0% {
+left: -100px;
+transform: rotate(45deg);
+opacity: 0;
+}
+
+10%, 90% {
+    opacity: 1;
+}
+
+100% {
+    left: 110%;
+    transform: rotate(45deg);
+    opacity: 0;
+}
+
+}
+/* MAIN CONTAINER */
+
+.container {
+width: 100%;
+max-width: 850px;
+text-align: center;
+}
+
+h1 {
+font-size: 38px;
+margin-bottom: 12px;
+text-shadow: 0 0 10px rgba(255,255,255,0.4);
+}
+
+h2 { margin-bottom: 15px; }
+
+h3 { margin: 20px 0 12px; }
+
+.subtitle {
+font-size: 18px;
+color: #cbd7ff;
+margin-bottom: 25px;
+}
+
+/* 👨‍🚀 FLOATING ASTRONAUT */
+
+.astronaut {
+font-size: 90px;
+margin: 15px 0 25px;
+animation: floatAstronaut 3s ease-in-out infinite;
+}
+
+@keyframes floatAstronaut {
+0%, 100% { transform: translateY(0); }
+50% { transform: translateY(-12px); }
+}
+
+/* MISSION CARD */
+
+.mission-card {
+background: rgba(10,18,55,0.88);
+border: 1px solid rgba(130,170,255,0.45);
+border-radius: 22px;
+padding: 30px;
+box-shadow: 0 0 30px rgba(70,120,255,0.18);
+backdrop-filter: blur(8px);
+animation: missionAppear 0.7s ease-out;
+}
+
+@keyframes missionAppear {
+from {
+opacity: 0;
+transform: translateY(20px);
+}
+to {
+opacity: 1;
+transform: translateY(0);
+}
+}
+
+.mission-card p {
+font-size: 17px;
+line-height: 1.7;
+margin-bottom: 18px;
+}
+
+/* BUTTONS */
+
+button {
+display: block;
+width: 100%;
+max-width: 500px;
+margin: 12px auto;
+padding: 14px 20px;
+border: 1px solid rgba(255,255,255,0.25);
+border-radius: 12px;
+background: #162b63;
+color: white;
+font-size: 17px;
+font-weight: bold;
+cursor: pointer;
+transition: 0.3s;
+}
+
+button:hover {
+transform: translateY(-3px);
+background: #24458f;
+box-shadow: 0 0 18px rgba(70,120,255,0.5);
+}
+
+button:active {
+transform: scale(0.98);
+}
+
+/* RESOURCES */
+
+.resources {
+margin: 20px 0;
+padding: 18px;
+background: rgba(255,255,255,0.06);
+border-radius: 15px;
+}
+
+.resources p {
+margin: 10px 0;
+font-size: 16px;
+}
+
+.resources strong { font-size: 18px; }
+
+.resource { margin: 18px 0; }
+
+.resource-info {
+display: flex;
+justify-content: space-between;
+margin-bottom: 7px;
+font-size: 15px;
+}
+
+.resource-bar {
+width: 100%;
+height: 16px;
+background: rgba(255,255,255,0.12);
+border-radius: 20px;
+overflow: hidden;
+}
+
+.resource-fill {
+height: 100%;
+border-radius: 20px;
+transition: width 0.5s ease;
+}
+
+.oxygen-fill { background: #6ee7f9; }
+.water-fill { background: #4da6ff; }
+.food-fill { background: #8fd14f; }
+.power-fill { background: #ffd34d; }
+
+/* SCORE */
+
+.score-display {
+margin-top: 25px;
+padding: 12px;
+border-radius: 12px;
+background: rgba(255,255,255,0.08);
+font-size: 18px;
+font-weight: bold;
+}
+
+/* OBJECTIVE */
+
+.objective {
+margin: 20px 0;
+padding: 14px;
+border: 1px solid rgba(255,255,255,0.2);
+border-radius: 12px;
+background: rgba(255,255,255,0.06);
+font-weight: bold;
+font-size: 16px;
+}
+
+/* MISSION REPORT */
+
+.mission-report { margin: 25px 0; }
+
+.report-item {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin: 10px 0;
+padding: 14px;
+background: rgba(255,255,255,0.07);
+border-radius: 12px;
+}
+
+.report-item strong { font-size: 18px; }
+
+/* RATING */
+
+.rating {
+margin: 25px 0;
+font-size: 24px;
+}
+
+/* LEARNING BOX */
+
+.learning-box {
+margin-top: 25px;
+padding: 20px;
+border-radius: 15px;
+background: rgba(255,255,255,0.06);
+border: 1px solid rgba(130,170,255,0.3);
+text-align: left;
+}
+
+.learning-box h3 {
+text-align: center;
+margin-bottom: 15px;
+}
+
+.learning-box p {
+margin: 10px 0;
+font-size: 15px;
+line-height: 1.6;
+}
+
+/* CREDITS */
+
+.credits-box {
+margin-top: 20px;
+padding: 18px;
+border-radius: 15px;
+background: rgba(255,255,255,0.04);
+border: 1px dashed rgba(130,170,255,0.35);
+text-align: left;
+font-size: 14px;
+line-height: 1.6;
+}
+
+.credits-box h3 {
+text-align: center;
+margin-bottom: 12px;
+}
+
+/* BADGES */
+
+.badge {
+margin: 25px auto;
+padding: 20px;
+max-width: 300px;
+border: 2px solid rgba(255,255,255,0.35);
+border-radius: 20px;
+background: rgba(255,255,255,0.08);
+text-align: center;
+box-shadow: 0 0 25px rgba(255,255,255,0.12);
+}
+
+.badge:first-letter { font-size: 45px; }
+
+.badge h3 { margin: 8px 0; }
+
+.badge p { margin: 0; }
+
+/* MISSION HEADER */
+
+.mission-header {
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 15px;
+margin-bottom: 15px;
+}
+
+.mission-logo { font-size: 50px; }
+
+.mission-header h1 { margin-bottom: 5px; }
+
+.mission-header p {
+color: #9fb7ff;
+font-size: 14px;
+letter-spacing: 1px;
+}
+
+/* TIMER */
+
+.timer {
+margin: 18px 0;
+padding: 12px;
+border-radius: 12px;
+background: rgba(255,255,255,0.08);
+border: 1px solid rgba(130,170,255,0.25);
+font-size: 18px;
+font-weight: bold;
+text-align: center;
+}
+
+#missionTimer { font-size: 24px; }
+
+/* PROGRESS BAR */
+
+.progress-bar {
+width: 100%;
+height: 12px;
+margin: 10px 0 20px;
+background: rgba(255,255,255,0.12);
+border-radius: 20px;
+overflow: hidden;
+}
+
+.progress-fill {
+height: 100%;
+background: #6ee7f9;
+border-radius: 20px;
+transition: width 0.5s ease;
+}
+
+/* MISSION STATUS */
+
+.mission-status {
+margin: 15px 0;
+padding: 10px;
+border-radius: 10px;
+background: rgba(80,200,120,0.12);
+border: 1px solid rgba(80,200,120,0.35);
+font-weight: bold;
+font-size: 15px;
+text-align: center;
+}
+
+/* MOBILE SCREEN */
+
+@media (max-width: 600px) {
+body { padding: 12px; }
+
+h1 { font-size: 28px; }
+
+.subtitle { font-size: 16px; }
+
+.mission-card { padding: 20px 15px; }
+
+.astronaut { font-size: 70px; }
+
+.mission-card p { font-size: 15px; }
+
+button {
+    font-size: 15px;
+    padding: 13px;
+}
+
+.rocket-animation {
+    font-size: 32px;
+}
+
+}
+/* 🌠 SHOOTING STARS */
+
+.shooting-star {
+position: fixed;
+width: 100px;
+height: 3px;
+background: linear-gradient(90deg, white, transparent);
+border-radius: 50%;
+pointer-events: none;
+z-index: 9998;
+transform: rotate(-35deg);
+animation: shootingStar 3s linear infinite;
+}
+
+.star-one {
+top: 15%;
+left: -150px;
+animation-delay: 0s;
+}
+
+.star-two {
+top: 45%;
+left: -150px;
+animation-delay: 4s;
+}
+
+.star-three {
+top: 70%;
+left: -150px;
+animation-delay: 7s;
+}
+
+@keyframes shootingStar {
+0% {
+left: -150px;
+opacity: 0;
+}
+
+15% {
+    opacity: 1;
+}
+
+100% {
+    left: 120%;
+    opacity: 0;
+}
+
+}
+/* 🪐 FLOATING PLANETS */
+
+.floating-planet {
+position: fixed;
+pointer-events: none;
+z-index: 0;
+animation: planetFloat 6s ease-in-out infinite alternate;
+}
+
+.planet-one {
+top: 18%;
+right: 8%;
+font-size: 55px;
+}
+
+.planet-two {
+top: 65%;
+left: 5%;
+font-size: 45px;
+animation-delay: 2s;
+}
+
+.planet-three {
+top: 35%;
+right: 18%;
+font-size: 35px;
+animation-delay: 4s;
+}
+
+@keyframes planetFloat {
+from {
+transform: translateY(0);
+}
+to {
+transform: translateY(-25px);
+}
+}
+/* ☀️ REALISTIC SOLAR SYSTEM */
+
+.solar-system {
+    position: relative;
+    width: 100%;
+    max-width: 650px;
+    height: 650px;
+    margin: 30px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle, #101b45, #020617);
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.sun {
+    position: absolute;
+    font-size: 45px;
+    z-index: 5;
+    filter: drop-shadow(0 0 20px orange);
+}
+
+/* ORBIT PATHS */
+
+.orbit {
+    position: absolute;
+    border: 1px solid rgba(255,255,255,0.35);
+    border-radius: 50%;
+    animation: orbitSpin linear infinite;
+}
+
+.orbit span {
+    position: absolute;
+    top: -13px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 22px;
+}
+
+/* DIFFERENT ORBIT SIZES */
+
+.orbit-mercury {
+    width: 90px;
+    height: 90px;
+    animation-duration: 4s;
+}
+
+.orbit-venus {
+    width: 145px;
+    height: 145px;
+    animation-duration: 7s;
+}
+
+.orbit-earth {
+    width: 200px;
+    height: 200px;
+    animation-duration: 10s;
+}
+
+.orbit-mars {
+    width: 255px;
+    height: 255px;
+    animation-duration: 14s;
+}
+
+.orbit-jupiter {
+    width: 340px;
+    height: 340px;
+    animation-duration: 20s;
+}
+
+.orbit-saturn {
+    width: 425px;
+    height: 425px;
+    animation-duration: 27s;
+}
+
+.orbit-uranus {
+    width: 510px;
+    height: 510px;
+    animation-duration: 34s;
+}
+
+.orbit-neptune {
+    width: 595px;
+    height: 595px;
+    animation-duration: 42s;
+}
+
+/* PLANET ORBIT MOVEMENT */
+
+@keyframes orbitSpin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* MOBILE SCREEN */
+
+@media (max-width: 600px) {
+    .solar-system {
+        height: 350px;
+    }
+
+    .orbit-mercury {
+        width: 55px;
+        height: 55px;
+    }
+
+    .orbit-venus {
+        width: 85px;
+        height: 85px;
+    }
+
+    .orbit-earth {
+        width: 115px;
+        height: 115px;
+    }
+
+    .orbit-mars {
+        width: 145px;
+        height: 145px;
+    }
+
+    .orbit-jupiter {
+        width: 190px;
+        height: 190px;
+    }
+
+    .orbit-saturn {
+        width: 235px;
+        height: 235px;
+    }
+
+    .orbit-uranus {
+        width: 280px;
+        height: 280px;
+    }
+
+    .orbit-neptune {
+        width: 325px;
+        height: 325px;
+    }
+}
